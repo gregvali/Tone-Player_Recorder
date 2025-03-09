@@ -13,15 +13,15 @@ char keypad_input();
 void keypad_config()
 {
     //Port C
-    SYSCTL_RCGCGPIO_R |= 0x4;               //Port C Clock
-    GPIO_PORTC_DEN_R |= 0xF0;               //PC4 - PC7 Digital Enable
-    GPIO_PORTC_DIR_R |= 0x0;                //Port C input
-    GPIO_PORTC_PDR_R |= 0xF0;               //PC4 - PC7 Weak PD resistor
+    SYSCTL_RCGCGPIO_R    |=  0x4;               //Port C Clock
+    GPIO_PORTC_DEN_R     |=  0xF0;              //PC4 - PC7 Digital Enable
+    GPIO_PORTC_DIR_R     |=  0x0;               //Port C input
+    GPIO_PORTC_PDR_R     |=  0xF0;              //PC4 - PC7 Weak PD resistor
 
     //Port E
-    SYSCTL_RCGCGPIO_R |= 0x10;              //Port E Clock
-    GPIO_PORTE_DEN_R |= 0x1E;               //PE1 - PE4 Digital Enable For RS, RW, E
-    GPIO_PORTE_DIR_R |= 0x1E;               //Port E output
+    SYSCTL_RCGCGPIO_R    |=  0x10;              //Port E Clock
+    GPIO_PORTE_DEN_R     |=  0x1E;              //PE1 - PE4 Digital Enable For RS, RW, E
+    GPIO_PORTE_DIR_R     |=  0x1E;              //Port E output
 }
 
 char keypad_input()

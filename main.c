@@ -1,6 +1,7 @@
 
 
 /**
+ * made by: Greg Valijan
  * main.c
  */
 #include "tm4c123gh6pm.h"
