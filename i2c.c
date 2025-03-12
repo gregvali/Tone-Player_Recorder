@@ -28,6 +28,7 @@ void i2c_config();
 void store_byte(uint8_t, uint16_t);
 uint8_t random_read(uint16_t);
 void change_addr(uint16_t);
+void reset();
 void write_dr(uint8_t, uint8_t);
 uint8_t read_dr();
 
@@ -89,6 +90,14 @@ void change_addr(uint16_t addr)
 
     write_dr(MSB, STARTEN);                                 //Send MSB of addr
     write_dr(LSB, STOPEN);                                  //Send LSB of addr
+}
+
+void reset()
+{
+    uint8_t addr = 0x0;
+    while(random_read(addr) != 0xFF){
+        store_byte(0xFF, addr++);
+    }
 }
 
 void write_dr(uint8_t data, uint8_t code)

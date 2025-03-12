@@ -1,17 +1,17 @@
 ******************************************************************************
                   TI ARM Linker PC v20.2.7                     
 ******************************************************************************
->> Linked Tue Mar 11 22:47:03 2025
+>> Linked Tue Mar 11 23:07:07 2025
 
 OUTPUT FILE NAME:   <Tone-Player-Recorder.out>
-ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00000abd
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00000b71
 
 
 MEMORY CONFIGURATION
 
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
-  FLASH                 00000000   00040000  00000b0c  0003f4f4  R  X
+  FLASH                 00000000   00040000  00000bc0  0003f440  R  X
   SRAM                  20000000   00008000  00000200  00007e00  RW X
 
 
@@ -19,10 +19,10 @@ SEGMENT ALLOCATION MAP
 
 run origin  load origin   length   init length attrs members
 ----------  ----------- ---------- ----------- ----- -------
-00000000    00000000    00000b0c   00000b0c    r-x
+00000000    00000000    00000bc0   00000bc0    r-x
   00000000    00000000    0000026c   0000026c    r-- .intvecs
-  0000026c    0000026c    00000890   00000890    r-x .text
-  00000afc    00000afc    00000010   00000010    r-- .const
+  0000026c    0000026c    00000944   00000944    r-x .text
+  00000bb0    00000bb0    00000010   00000010    r-- .const
 20000000    20000000    00000200   00000000    rw-
   20000000    20000000    00000200   00000000    rw- .stack
 
@@ -35,21 +35,21 @@ section   page    origin      length       input sections
 .intvecs   0    00000000    0000026c     
                   00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
 
-.text      0    0000026c    00000890     
-                  0000026c    00000200     i2c.obj (.text)
-                  0000046c    00000198     pwm.obj (.text)
-                  00000604    00000178     uart.obj (.text)
-                  0000077c    00000150     main.obj (.text)
-                  000008cc    000000e4     keypad.obj (.text)
-                  000009b0    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
-                  00000a4c    00000070     ledcontrol.obj (.text)
-                  00000abc    0000002c     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
-                  00000ae8    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
-                  00000af4    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
-                  00000af8    00000004                                   : exit.c.obj (.text:abort:abort)
+.text      0    0000026c    00000944     
+                  0000026c    00000228     i2c.obj (.text)
+                  00000494    0000021c     pwm.obj (.text)
+                  000006b0    00000178     uart.obj (.text)
+                  00000828    00000158     main.obj (.text)
+                  00000980    000000e4     keypad.obj (.text)
+                  00000a64    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00000b00    00000070     ledcontrol.obj (.text)
+                  00000b70    0000002c     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
+                  00000b9c    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000ba8    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00000bac    00000004                                   : exit.c.obj (.text:abort:abort)
 
-.const     0    00000afc    00000010     
-                  00000afc    00000010     keypad.obj (.const:$P$T0$1)
+.const     0    00000bb0    00000010     
+                  00000bb0    00000010     keypad.obj (.const:$P$T0$1)
 
 .cinit     0    00000000    00000000     UNINITIALIZED
 
@@ -69,14 +69,14 @@ MODULE SUMMARY
        ------                         ----   -------   -------
     .\
        tm4c123gh6pm_startup_ccs.obj   12     620       0      
-       i2c.obj                        512    0         0      
-       pwm.obj                        408    0         0      
+       i2c.obj                        552    0         0      
+       pwm.obj                        540    0         0      
        uart.obj                       376    0         0      
-       main.obj                       336    0         0      
+       main.obj                       344    0         0      
        keypad.obj                     228    16        0      
        ledcontrol.obj                 112    0         0      
     +--+------------------------------+------+---------+---------+
-       Total:                         1984   636       0      
+       Total:                         2164   636       0      
                                                               
     C:\ti\ccs1281\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
        memcpy_t2.asm.obj              156    0         0      
@@ -88,16 +88,16 @@ MODULE SUMMARY
                                                               
        Stack:                         0      0         512    
     +--+------------------------------+------+---------+---------+
-       Grand Total:                   2192   636       512    
+       Grand Total:                   2372   636       512    
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
 
 address   name                   
 -------   ----                   
-00000af9  C$$EXIT                
-00000605  EnableUART             
-00000ae9  ResetISR               
+00000bad  C$$EXIT                
+000006b1  EnableUART             
+00000b9d  ResetISR               
 20000200  __STACK_END            
 00000200  __STACK_SIZE           
 20000200  __STACK_TOP            
@@ -105,40 +105,42 @@ ffffffff  __TI_pprof_out_hndl
 ffffffff  __TI_prof_data_size    
 ffffffff  __TI_prof_data_start   
 00000000  __TI_static_base__     
-000009b1  __aeabi_memcpy         
-000009b1  __aeabi_memcpy4        
-000009b1  __aeabi_memcpy8        
+00000a65  __aeabi_memcpy         
+00000a65  __aeabi_memcpy4        
+00000a65  __aeabi_memcpy8        
 ffffffff  __binit__              
 ffffffff  __c_args__             
 UNDEFED   __mpu_init             
 20000000  __stack                
 20000000  __start___llvm_prf_cnts
 20000000  __stop___llvm_prf_cnts 
-00000abd  _c_int00_noinit_noargs 
-00000af5  _system_pre_init       
-00000af9  abort                  
+00000b71  _c_int00_noinit_noargs 
+00000ba9  _system_pre_init       
+00000bad  abort                  
 ffffffff  binit                  
 0000036f  change_addr            
-00000595  delay_us               
+00000643  delay_us               
 00000000  g_pfnVectors           
 0000026d  i2c_config             
-000008cd  keypad_config          
-00000911  keypad_input           
-00000a4d  led_config             
-0000077d  main                   
-000009b1  memcpy                 
-00000507  play_note              
-0000068b  print                  
-0000046d  pwm_config             
+00000981  keypad_config          
+000009c5  keypad_input           
+00000b01  led_config             
+00000829  main                   
+00000a65  memcpy                 
+000005bd  play_note_i            
+0000052f  play_note_s            
+00000737  print                  
+00000495  pwm_config             
 0000031f  random_read            
-0000067b  readChar               
-000003ef  read_dr                
-0000065f  sendChar               
-000004d9  set_frequency          
-00000a6d  set_led                
+00000727  readChar               
+00000417  read_dr                
+000003b5  reset                  
+0000070b  sendChar               
+00000501  set_frequency          
+00000b21  set_led                
 000002cb  store_byte             
-000006a7  uint32_to_str          
-000003b5  write_dr               
+00000753  uint32_to_str          
+000003dd  write_dr               
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -152,31 +154,33 @@ address   name
 000002cb  store_byte             
 0000031f  random_read            
 0000036f  change_addr            
-000003b5  write_dr               
-000003ef  read_dr                
-0000046d  pwm_config             
-000004d9  set_frequency          
-00000507  play_note              
-00000595  delay_us               
-00000605  EnableUART             
-0000065f  sendChar               
-0000067b  readChar               
-0000068b  print                  
-000006a7  uint32_to_str          
-0000077d  main                   
-000008cd  keypad_config          
-00000911  keypad_input           
-000009b1  __aeabi_memcpy         
-000009b1  __aeabi_memcpy4        
-000009b1  __aeabi_memcpy8        
-000009b1  memcpy                 
-00000a4d  led_config             
-00000a6d  set_led                
-00000abd  _c_int00_noinit_noargs 
-00000ae9  ResetISR               
-00000af5  _system_pre_init       
-00000af9  C$$EXIT                
-00000af9  abort                  
+000003b5  reset                  
+000003dd  write_dr               
+00000417  read_dr                
+00000495  pwm_config             
+00000501  set_frequency          
+0000052f  play_note_s            
+000005bd  play_note_i            
+00000643  delay_us               
+000006b1  EnableUART             
+0000070b  sendChar               
+00000727  readChar               
+00000737  print                  
+00000753  uint32_to_str          
+00000829  main                   
+00000981  keypad_config          
+000009c5  keypad_input           
+00000a65  __aeabi_memcpy         
+00000a65  __aeabi_memcpy4        
+00000a65  __aeabi_memcpy8        
+00000a65  memcpy                 
+00000b01  led_config             
+00000b21  set_led                
+00000b71  _c_int00_noinit_noargs 
+00000b9d  ResetISR               
+00000ba9  _system_pre_init       
+00000bad  C$$EXIT                
+00000bad  abort                  
 20000000  __stack                
 20000000  __start___llvm_prf_cnts
 20000000  __stop___llvm_prf_cnts 
@@ -190,4 +194,4 @@ ffffffff  __c_args__
 ffffffff  binit                  
 UNDEFED   __mpu_init             
 
-[44 symbols]
+[46 symbols]

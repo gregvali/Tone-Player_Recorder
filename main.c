@@ -16,7 +16,8 @@ void keypad_config();
 uint8_t keypad_input();
 
 void pwm_config();
-void play_note(char);
+void play_note_s(uint8_t);
+void play_note_i(uint8_t);
 
 void led_config();
 void set_led(uint8_t);
@@ -24,6 +25,7 @@ void set_led(uint8_t);
 void i2c_config();
 void store_byte(uint8_t, uint16_t);
 uint8_t random_read(uint16_t);
+void reset();
 
 
 enum State                                              //State Enumerations
@@ -53,9 +55,10 @@ int main(void)
     {
         if(state == PLAY){
 
-            if(input != 0x0) play_note(input);          //If there is an input, play a note
+            if(input != 0x0) play_note_i(input);          //If there is an input, play a note
 
             if(input == 'R'){                           //Change to RECORD State
+                reset();                                //Clear Memory
                 state = RECORD;
                 set_led('R');
             }
@@ -69,7 +72,7 @@ int main(void)
         else if(state == RECORD){
 
             if(input != 0x0) {                          //If there is input
-                play_note(input);                       //play the specified note
+                play_note_s(input);                     //play the specified note
                 store_byte(input, addr++);              //Save the note while incrementing the address
             }
 
@@ -88,7 +91,7 @@ int main(void)
             if(input == 'Y') {
                 total = 0x0;
                 while(total < addr){                    //Loop through every saved byte
-                    play_note(random_read(total++));    //Play each note
+                    play_note_s(random_read(total++));  //Play each note
                 }
             }
 
@@ -98,6 +101,7 @@ int main(void)
                 addr = 0x0;
             }
             else if(input == 'R') {                     //Change to RECORD State
+                reset();                                //Clear Memory
                 state = RECORD;
                 set_led('R');
                 addr = 0x0;
