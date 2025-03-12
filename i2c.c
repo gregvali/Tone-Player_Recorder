@@ -62,8 +62,6 @@ void store_byte(uint8_t data, uint16_t addr)
     write_dr(MSB, STARTEN);                                 //Send MSB of addr
     write_dr(LSB, I2CEN);                                   //Send LSB of addr
     write_dr(data, STOPEN);                                 //Generate Stop and enable I2C to send data (last byte)
-
-    sendChar(data);
 }
 
 

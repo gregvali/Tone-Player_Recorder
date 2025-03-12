@@ -85,16 +85,23 @@ int main(void)
             sendChar('r');
         }
         else if(state == PLAYBACK){
-
-            while(total < addr){                        //Loop through every saved byte
-                play_note(random_read(total++));        //Play each note
-                sendChar('s');
+            if(input == 'Y') {
+                total = 0x0;
+                while(total < addr){                    //Loop through every saved byte
+                    play_note(random_read(total++));    //Play each note
+                }
             }
 
-            total = 0x0;
-            addr = 0x0;
-            state = PLAY;                               //Back to Default
-            set_led('P');
+            if(input == 'P'){                           //Change to PLAY State
+                state = PLAY;
+                set_led('P');
+                addr = 0x0;
+            }
+            else if(input == 'R') {                     //Change to RECORD State
+                state = RECORD;
+                set_led('R');
+                addr = 0x0;
+            }
 
             sendChar('b');
         }
