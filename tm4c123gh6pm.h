@@ -227,7 +227,7 @@
 #define GPIO_PORTC_IS_R         (*((volatile uint32_t *)0x40006404))
 #define GPIO_PORTC_IBE_R        (*((volatile uint32_t *)0x40006408))
 #define GPIO_PORTC_IEV_R        (*((volatile uint32_t *)0x4000640C))
-#define GPIO_PORTC_IM_R         (*((volatile uint32_t *)0x40006410))
+#define GPIO_PORTC_IFM_R         (*((volatile uint32_t *)0x40006410))
 #define GPIO_PORTC_RIS_R        (*((volatile uint32_t *)0x40006414))
 #define GPIO_PORTC_MIS_R        (*((volatile uint32_t *)0x40006418))
 #define GPIO_PORTC_ICR_R        (*((volatile uint32_t *)0x4000641C))

@@ -10,10 +10,13 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./i2c.obj" \
 "./keypad.obj" \
+"./ledcontrol.obj" \
 "./main.obj" \
 "./pwm.obj" \
 "./tm4c123gh6pm_startup_ccs.obj" \
+"./uart.obj" \
 "../tm4c123gh6pm.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
@@ -144,8 +147,8 @@ Tone-Player-Recorder.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "keypad.obj" "main.obj" "pwm.obj" "tm4c123gh6pm_startup_ccs.obj" 
-	-$(RM) "keypad.d" "main.d" "pwm.d" "tm4c123gh6pm_startup_ccs.d" 
+	-$(RM) "i2c.obj" "keypad.obj" "ledcontrol.obj" "main.obj" "pwm.obj" "tm4c123gh6pm_startup_ccs.obj" "uart.obj" 
+	-$(RM) "i2c.d" "keypad.d" "ledcontrol.d" "main.d" "pwm.d" "tm4c123gh6pm_startup_ccs.d" "uart.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -8,7 +8,7 @@
 #include "tm4c123gh6pm.h"
 
 void keypad_config();
-char keypad_input();
+uint8_t keypad_input();
 
 void keypad_config()
 {
@@ -24,12 +24,12 @@ void keypad_config()
     GPIO_PORTE_DIR_R     |=  0x1E;              //Port E output
 }
 
-char keypad_input()
+uint8_t keypad_input()
 {
-    unsigned char symbol[4][4] = {
+    uint8_t symbol[4][4] = {
         {'A','B','C','P'},
         {'D','E','F','R'},
-        { 0 ,'G', 0 ,'B'},
+        { 0 ,'G', 0 ,'K'},
         { 0 , 0 , 0 , 0 }
     };
 
